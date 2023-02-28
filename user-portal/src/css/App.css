@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+.App {
+  text-align: center;
+}
+
+.Header {
+  box-sizing: border-box;
+  background-color: rgb(146, 179, 239);
+  font-family: 'Montserrat', cursive;
+  height: 250px;
+  position: relative;
+}
+
+.banner-container {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+}
+
+.Header-banner-description {
+  width: 60%;
+  margin: auto;
+  align-items: center;
+  text-align: center;
+}
