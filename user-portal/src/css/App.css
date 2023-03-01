@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 * {
   margin: 0;
@@ -10,10 +11,11 @@
 }
 
 .Header {
+  font-weight: 700;
   box-sizing: border-box;
   margin-top: 4rem;
   font-family: 'Montserrat', cursive;
-  height: 20g0px;
+  height: max-content;
   position: relative;
   border: 1px black;
   border-style: solid none solid none;
@@ -21,15 +23,19 @@
 }
 
 .banner-container {
-
-  position: absolute;
+  position: relative;
   width: 100%;
-  bottom: 40px;
 }
 
 .Header-banner-description {
+  
   width: 50%;
   margin: auto;
   align-items: center;
   text-align: center;
+}
+
+.Header-banner {
+  font-weight: 700;
+
 }
