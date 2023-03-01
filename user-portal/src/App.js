@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Accounts from './Components/Accounts/Accounts';
 import Account from './Components/Accounts/Account';
-import NavBar from './Components/NavBar';
+
 function App() {
   return (
     <div className="App">

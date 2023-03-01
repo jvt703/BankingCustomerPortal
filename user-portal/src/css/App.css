@@ -39,3 +39,14 @@
   font-weight: 700;
 
 }
+
+.AccountCard {
+  width: 40%;
+}
+
+.Section-title {
+  text-align: left;
+  margin-left: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
