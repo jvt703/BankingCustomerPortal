@@ -51,16 +51,21 @@
   margin-bottom: 2rem;
 }
 .Account-button {
-  width: 30%;
+  width: 10rem;
 
 }
 
 .Card-title {
   text-align: left;
   margin-left: 1rem;
+  font-size: 22px;
+  font-weight: bolder;
 }
 
 .Card-content {
   margin-left: 1rem;
-
+  text-align: left;
+}
+.Account-Balance {
+  font-weight: bold;
 }

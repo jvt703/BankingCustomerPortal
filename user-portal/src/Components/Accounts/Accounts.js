@@ -11,7 +11,7 @@ const Accounts = ()=>{
           pageDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
         />
         <Section title="Accounts">
-          <AccountCard accountName={"Test account"} accountNumber={2} accountBalance={100}></AccountCard>
+          <AccountCard accountName={"Checking Account ********12334"} accountNumber={2} accountBalance={100}></AccountCard>
         </Section>
       </>
     );
