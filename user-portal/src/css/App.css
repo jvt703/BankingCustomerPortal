@@ -1,0 +1,41 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+}
+
+.Header {
+  font-weight: 700;
+  box-sizing: border-box;
+  margin-top: 4rem;
+  font-family: 'Montserrat', cursive;
+  height: max-content;
+  position: relative;
+  border: 1px black;
+  border-style: solid none solid none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.banner-container {
+  position: relative;
+  width: 100%;
+}
+
+.Header-banner-description {
+  
+  width: 50%;
+  margin: auto;
+  align-items: center;
+  text-align: center;
+}
+
+.Header-banner {
+  font-weight: 700;
+
+}
