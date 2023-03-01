@@ -1,13 +1,19 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function AccountCard(props) {
   return (
-    <Card className='AccountCard my-2 mx-3'>
+    <Card  style={{ width: '30rem' }}>
       <Card.Body>
-        <Card.Title>{props.accountName}</Card.Title>
-        <Button variant="primary" href="#">View Account</Button>
+        <Card.Title className='Card-title '>{props.accountName}</Card.Title>
+        <Card.Text className='Card-content'>
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </Card.Text>
+
       </Card.Body>
+      <Link className='text-left m-2 Account-button' to={`/Accounts/${props.accountNumber}`}><Button  variant="primary">Check Account</Button></Link>
     </Card>
   );
 }
