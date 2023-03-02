@@ -3,12 +3,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 import Section from './Section';
 import AccountCard from '../Accounts/AccountCard';
 function Subsection({CardArray, SubsectionName}) {
- const [displayedCards, setDisplayedCards] = useState(2);
+ const [displayedCards, setDisplayedCards] = useState(4);
   const handleShowMore = () => {
     setDisplayedCards(displayedCards + 2);
   }
   const accountCards = CardArray.slice(0, displayedCards).map(account => (
-    <div className='col-sm-4'>
+    <div className='m-2'>
       <AccountCard accountName={account.name} accountId = {account.id} accountNumber={account.number} accountBalance={account.balance} />
     </div>  ))
 
@@ -16,7 +16,7 @@ function Subsection({CardArray, SubsectionName}) {
   return (
   <div style={{marginTop: "2rem"}}>
             <h3 style={{textAlign: "left"}}>{SubsectionName}</h3>
-             <div className='d-flex Subsection-container'>
+             <div className='Subsection-container mt-3'>
             {accountCards}
           {/* <AccountCard accountName={"Checking Account ********12334"} accountNumber={2} accountBalance={100}></AccountCard> */}
           

@@ -41,9 +41,11 @@
 }
 
 .Account-card {
-  flex-grow: 1;
+  width: 100%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+
 
 .Section-title {
   text-align: left;
@@ -77,8 +79,9 @@
 }
 .Account-Balance {
   font-weight: bold;
-
+  overflow-x: hidden;
   text-align: right;
+  height: auto;
 }
 
 .Sections-container {
@@ -91,8 +94,19 @@
 }
 
 .Subsection-container {
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  /* gap: 10px;
   flex-wrap: wrap;
+  justify-content: start; */
+}
+@media (max-width: 767px) {
+  .Subsection-container {
+      display: grid;
+      grid-template-columns: 1fr;
+  
+    }
 }
 
 
