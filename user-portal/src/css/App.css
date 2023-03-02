@@ -97,9 +97,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  /* gap: 10px;
-  flex-wrap: wrap;
-  justify-content: start; */
 }
 @media (max-width: 767px) {
   .Subsection-container {
@@ -131,8 +128,8 @@
   position: relative;
   text-align: center;
   text-decoration: none;
-  user-select: none;
   -webkit-user-select: none;
+  user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
   white-space: nowrap;
