@@ -1,0 +1,30 @@
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.css'
+import Section from './Section';
+import AccountCard from '../Accounts/AccountCard';
+function Subsection({CardArray, SubsectionName}) {
+ const [displayedCards, setDisplayedCards] = useState(2);
+  const handleShowMore = () => {
+    setDisplayedCards(displayedCards + 2);
+  }
+  const accountCards = CardArray.slice(0, displayedCards).map(account => (
+    <div className='col-sm-4'>
+      <AccountCard accountName={account.name} accountId = {account.id} accountNumber={account.number} accountBalance={account.balance} />
+    </div>  ))
+
+
+  return (
+  <div style={{marginTop: "2rem"}}>
+            <h3 style={{textAlign: "left"}}>{SubsectionName}</h3>
+             <div className='d-flex Subsection-container'>
+            {accountCards}
+          {/* <AccountCard accountName={"Checking Account ********12334"} accountNumber={2} accountBalance={100}></AccountCard> */}
+          
+        
+        </div>
+        {displayedCards < CardArray.length && <button className='mt-3 view-button' onClick={handleShowMore}>Show more</button>}
+        </div>
+  );
+}
+
+export default Subsection;
