@@ -2,17 +2,15 @@ import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css'
 function Section(props) {
+    
   return (
-    <div className='d-flex justify-content-center'>
-    <Card className='m-2 w-75'>
-    <Container className='vh-100 '>
+    <div className='d-flex Sections-container justify-content-center'>
+    <Card className='p-3 m-2 w-75 Section-container'>
       <h2 className='Section-title ml-4'>{props.title}</h2>
-      <Row>
-        <Col>
+      <div className='d-flex card-container'>
           {props.children}
-        </Col>
-      </Row>
-    </Container>
+      </div>
+    
     </Card>
     </div>
   );

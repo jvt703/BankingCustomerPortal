@@ -11,8 +11,8 @@ import Account from './Components/Accounts/Account';
 
 function App() {
   return (
-    <div className="App">
-      <body>
+    
+      <body className="App">
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Accounts></Accounts>} />
@@ -32,7 +32,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </body>
-    </div>
+  
   );
 }
 
