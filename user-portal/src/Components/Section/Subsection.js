@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  {React, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
 import AccountCard from '../Accounts/AccountCard';
 function Subsection({CardArray, SubsectionName}) {
@@ -6,11 +6,11 @@ function Subsection({CardArray, SubsectionName}) {
   const handleShowMore = () => {
     setDisplayedCards(displayedCards + 2);
   }
-  
+
 
   const accountCards = CardArray.slice(0, displayedCards).map(account => (
-    <div className='m-2'>
-      <AccountCard accountName={account.accountName} accountId = {account.id} accountType={account.accountTypeId.name} accountBalance={account.balance} />
+    <div className='m-2' key={account.id}>
+      <AccountCard  accountName={account.accountName} accountId = {account.id} accountType={account.accountTypeName} accountBalance={account.balance} />
     </div>  ))
 
 
