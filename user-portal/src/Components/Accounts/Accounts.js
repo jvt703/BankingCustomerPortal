@@ -1,21 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import HeaderComponent from "../Headercomponent";
 import Section from "../Section/Section";
-import AccountCard from "./AccountCard";
+
 
 const Accounts = ()=>{
-        let arr = [{name:"Checking Account ********12334", number: 2, balance: 100}, {name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100},{name:"Checking Account ********12334", number: 2, balance: 100}]
-    const [displayedCards, setDisplayedCards] = useState(2);
-
-  const handleShowMore = () => {
-    setDisplayedCards(displayedCards + 2);
-  }
-
-  const accountCards = arr.slice(0, displayedCards).map(account => (
-    <div className='col-sm-4'>
-      <AccountCard accountName={account.name} accountNumber={account.number} accountBalance={account.balance} />
-    </div>
-  ));
+  
     return (
       <>
         <HeaderComponent

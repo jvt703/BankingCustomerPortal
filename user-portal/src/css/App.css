@@ -148,3 +148,8 @@
   background-color: #0064bd;
   box-shadow: none;
 }
+
+.Account-name {
+  display: flex;
+  gap: 1rem;
+}
