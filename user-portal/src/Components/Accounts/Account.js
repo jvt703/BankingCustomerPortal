@@ -14,6 +14,7 @@ const Account = ()=>{
  
         <Section title="Account">
             <AccountInfoCard></AccountInfoCard>
+            
         </Section>
         </>
     );

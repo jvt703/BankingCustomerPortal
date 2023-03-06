@@ -15,8 +15,8 @@ function Subsection({CardArray, SubsectionName}) {
 
 
   return (
-  <div style={{marginTop: "2rem"}}>
-            <h3 style={{textAlign: "left"}}>{SubsectionName}</h3>
+  <div className='mt-3'>
+            <h3 className='text-start'>{SubsectionName}</h3>
              <div className='Subsection-container mt-3'>
             {accountCards}
           {/* <AccountCard accountName={"Checking Account ********12334"} accountNumber={2} accountBalance={100}></AccountCard> */}

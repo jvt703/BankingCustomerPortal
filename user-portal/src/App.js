@@ -9,6 +9,7 @@ import {
 import Accounts from './Components/Accounts/Accounts';
 import Account from './Components/Accounts/Account';
 import React from 'react';
+import UserSettings from './Components/Users/UserSettings';
 
 function App() {
   return (
@@ -30,7 +31,10 @@ function App() {
                 />
               }
             />
+            <Route path='Settings' element={<UserSettings></UserSettings>}>             
+            </Route>
           </Routes>
+        
         </BrowserRouter>
       </body>
   

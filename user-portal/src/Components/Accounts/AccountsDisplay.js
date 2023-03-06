@@ -23,7 +23,7 @@ const AccountsDisplay =()=>{
             userId: 1,
             accountTypeName: "checking",
             accountTypeDescription: "account for general spending purposes",
-            balance: 1000.0,
+            balance: 10000000000.0,
             confirmation: false,
             active: true,
             pointsBalance: 0,
