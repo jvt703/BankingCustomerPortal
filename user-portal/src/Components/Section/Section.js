@@ -1,7 +1,7 @@
-import { React, useEffect, useState } from 'react';
+import { React} from 'react';
 import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css'
-import Subsection from './Subsection';
+
 function Section(props) {
         
         return (
