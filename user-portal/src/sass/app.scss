@@ -1,19 +1,19 @@
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/maps";
-@import "~bootstrap/scss/mixins";
-@import "~bootstrap/scss/utilities";
-@import "~bootstrap/scss/helpers";
-@import "~bootstrap/scss/utilities/api";
+// @import "~bootstrap/scss/functions";
+// @import "~bootstrap/scss/variables";
+// @import "~bootstrap/scss/maps";
+// @import "~bootstrap/scss/mixins";
+// @import "~bootstrap/scss/utilities";
+// @import "~bootstrap/scss/helpers";
+// @import "~bootstrap/scss/utilities/api";
 
-$all-colors: map-merge-multiple($blues, $indigos);
+// $all-colors: map-merge-multiple($blues, $indigos);
 
-$utilities: map-merge($utilities,
-        ("color": map-merge(map-get($utilities, "color"),
-                (values: map-merge(map-get(map-get($utilities, "color"), "values"),
-                        ($all-colors ),
-                    ),
-                ),
-            ),
-        ));
+// $utilities: map-merge($utilities,
+//         ("color": map-merge(map-get($utilities, "color"),
+//                 (values: map-merge(map-get(map-get($utilities, "color"), "values"),
+//                         ($all-colors ),
+//                     ),
+//                 ),
+//             ),
+//         ));
 
