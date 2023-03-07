@@ -1,5 +1,7 @@
 
 import './css/App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import HeaderComponent from './Components/Headercomponent';
 import {
   BrowserRouter,
@@ -10,11 +12,13 @@ import Accounts from './Components/Accounts/Accounts';
 import Account from './Components/Accounts/Account';
 import React from 'react';
 import UserSettings from './Components/Users/UserSettings';
+import NavBar from './Components/NavBar';
 
 function App() {
   return (
     
       <body className="App">
+        <NavBar></NavBar>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Accounts></Accounts>} />
