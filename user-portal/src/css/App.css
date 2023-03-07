@@ -17,8 +17,6 @@
   font-family: 'Montserrat', cursive;
   height: max-content;
   position: relative;
-  border: 1px black;
-  border-style: solid none solid none;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -38,6 +36,10 @@
 .Header-banner {
   font-weight: 700;
 
+}
+
+.NavBar {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .Account-card {

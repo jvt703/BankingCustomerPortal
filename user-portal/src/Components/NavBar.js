@@ -1,20 +1,21 @@
 
-import { Link} from 'react-router-dom';
 import React, { useState } from "react";
 import { Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 const NavBar = ({pageName, pageDescription})=>{
     const [state, setState] = useState("test");
-
+  
     const onClickHandler = (e)=>{
         localStorage.removeItem("UserToken")
+        console.log("here")
 
     } 
   
     return (
-    <Navbar bg="light" expand="lg">
+    <Navbar className='NavBar' bg="primary" variant='dark' expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">NineTen Bank</Navbar.Brand>
+        <Navbar.Brand href="/">NineTen Bank</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -22,8 +23,10 @@ const NavBar = ({pageName, pageDescription})=>{
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
+            <Nav.Link >
+              <Link to={"/"}>Home</Link>
+              </Nav.Link>
+            <Nav.Link href="/Transactions">Transactions</Nav.Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Settings</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
