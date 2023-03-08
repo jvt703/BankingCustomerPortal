@@ -99,29 +99,30 @@ const AccountsDisplay = () => {
   //   setAccountArray(data);
 
   // }
-  useEffect(
-    // ()=> loadAccounts()
-    () => {
-      const checksave = [];
-      const creditLoan = [];
-      for (const ele in AccountArray) {
-        if (
-          AccountArray[ele].accountTypeName === "checking" ||
-          AccountArray[ele].accountTypeName === "savings"
-        ) {
-          checksave.push(AccountArray[ele]);
-        } else if (
-          AccountArray[ele].accountTypeName === "loans" ||
-          AccountArray[ele].accountTypeName === "credit"
-        ) {
-          creditLoan.push(AccountArray[ele]);
-        }
+  useEffect(() => {
+    fetch(process.env.REACT_APP_BACKEND_URL + "user/1/accounts")
+      .then((res) => res.json())
+      .then(setAccountArray);
+  }, []);
+  useEffect(() => {
+    const checksave = [];
+    const creditLoan = [];
+    for (const ele in AccountArray) {
+      if (
+        AccountArray[ele].accountTypeName === "Checking" ||
+        AccountArray[ele].accountTypeName === "Savings"
+      ) {
+        checksave.push(AccountArray[ele]);
+      } else if (
+        AccountArray[ele].accountTypeName === "Loans" ||
+        AccountArray[ele].accountTypeName === "Credit"
+      ) {
+        creditLoan.push(AccountArray[ele]);
       }
-      setCheckingSavingsArr(checksave);
-      setCreditLoansArr(creditLoan);
-    },
-    [AccountArray]
-  );
+    }
+    setCheckingSavingsArr(checksave);
+    setCreditLoansArr(creditLoan);
+  }, [AccountArray]);
 
   return (
     <div className="Subsections-container mx-5">

@@ -11,7 +11,6 @@ const Account = ()=>{
     return (
         <>
         <HeaderComponent pageName={str} pageDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"/>
-        <Link to={"/"}>Here</Link>
         <Section title="Account">
             <AccountDisplay></AccountDisplay>
         </Section>

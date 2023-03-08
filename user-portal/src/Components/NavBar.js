@@ -6,10 +6,14 @@ import { Link, useNavigate } from "react-router-dom";
 const NavBar = ({pageName, pageDescription})=>{
     const [state, setState] = useState("test");
     const Navigate = useNavigate();
-    const onClickHandler = (e)=>{
+    const onClickHandler = (e)=>{ 
         localStorage.removeItem("UserToken")
         Navigate("/")
     } 
+
+    const clickToSettingsHandler=()=>{
+        Navigate("/Settings")
+    }
     useEffect(
       ()=>{
         localStorage.setItem("UserToken", "Test")
@@ -33,6 +37,11 @@ const NavBar = ({pageName, pageDescription})=>{
                   Home
                 </Link>
               </Nav.Link>
+                <Nav.Link>
+                <Link className="text-light text-decoration-none" to={"/Accounts"}>
+                  Accounts
+                </Link>
+              </Nav.Link>
               <Nav.Link>
                 <Link
                   className="text-light text-decoration-none"
@@ -43,27 +52,17 @@ const NavBar = ({pageName, pageDescription})=>{
               </Nav.Link>
               <NavDropdown
                 className="text-light"
-                title="Link"
+                title="User"
                 id="navbarScrollingDropdown"
               >
-                <NavDropdown.Item>
-                  <Nav.Link>
-                    <Link
-                      className="text-secondary text-decoration-none"
-                      to={"/Settings"}
-                    >
+                <NavDropdown.Item onClick={clickToSettingsHandler}>
+                  <Nav.Link className="text-secondary text-decoration-none">
                       Settings
-                    </Link>
                   </Nav.Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Nav.Link>
-                    <Link
-                      className="text-secondary text-decoration-none"
-                      to={"/Settings"}
-                    >
-                      Settings
-                    </Link>
+                <NavDropdown.Item onClick={clickToSettingsHandler}>
+                  <Nav.Link className="text-secondary text-decoration-none">
+                      Setting
                   </Nav.Link>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
