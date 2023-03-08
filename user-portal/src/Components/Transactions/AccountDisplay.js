@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AccountInfoCard from "../Accounts/AccountInfoCard";
+import TransactionInfoCard from "./TransactionInfoCard";
 
 const AccountDisplay = ()=>{
   const [AccountInfo, setAccountInfo] = useState({
@@ -30,7 +31,8 @@ const AccountDisplay = ()=>{
      return (
     <div className="Subsections-container mx-5">
         <AccountInfoCard AccountInfo={AccountInfo} ></AccountInfoCard>
-        
+        <TransactionInfoCard type={'Deposit'} amount={100.00} points={0} date={1000000000000}/>
+        <TransactionInfoCard type={'Withdrawal'} amount={50.00} points={5} date={1100000000000}/>
     </div>
   );
 }

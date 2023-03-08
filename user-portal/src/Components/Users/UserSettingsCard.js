@@ -38,6 +38,6 @@ const UserSettingsCard = ({settingText, settingValue}) => {
             </div>
         </div>
     );
-}
+};
 
 export default UserSettingsCard;
