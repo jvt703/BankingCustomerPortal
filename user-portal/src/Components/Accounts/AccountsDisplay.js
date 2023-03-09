@@ -6,7 +6,7 @@ const AccountsDisplay = () => {
     {
       id: 1677682,
       userId: 1,
-      accountTypeName: "checking",
+      accountTypeName: "Checking",
       accountTypeDescription: "account for general spending purposes",
       balance: 1000.0,
       confirmation: false,
@@ -18,7 +18,7 @@ const AccountsDisplay = () => {
     {
       id: 1677683,
       userId: 1,
-      accountTypeName: "checking",
+      accountTypeName: "Checking",
       accountTypeDescription: "account for general spending purposes",
       balance: 10000000000.0,
       confirmation: false,
@@ -30,7 +30,7 @@ const AccountsDisplay = () => {
     {
       id: 1677684,
       userId: 1,
-      accountTypeName: "checking",
+      accountTypeName: "Checking",
       accountTypeDescription: "account for general spending purposes",
       balance: 1000.0,
       confirmation: false,
@@ -42,7 +42,7 @@ const AccountsDisplay = () => {
     {
       id: 1677685,
       userId: 1,
-      accountTypeName: "checking",
+      accountTypeName: "Checking",
       accountTypeDescription: "account for general spending purposes",
       balance: 1000.0,
       confirmation: false,
@@ -54,7 +54,7 @@ const AccountsDisplay = () => {
     {
       id: 1677686,
       userId: 1,
-      accountTypeName: "checking",
+      accountTypeName: "Checking",
       accountTypeDescription: "account for general spending purposes",
       balance: 1000.0,
       confirmation: false,
@@ -66,7 +66,7 @@ const AccountsDisplay = () => {
     {
       id: 1677687,
       userId: 1,
-      accountTypeName: "credit",
+      accountTypeName: "Credit",
       accountTypeDescription: "account for general spending purposes",
       balance: 1000.0,
       confirmation: false,
@@ -78,7 +78,7 @@ const AccountsDisplay = () => {
     {
       id: 1677688,
       userId: 1,
-      accountTypeName: "loans",
+      accountTypeName: "Loans",
       accountTypeDescription: "account for general spending purposes",
       balance: 1000.0,
       confirmation: false,
@@ -99,11 +99,11 @@ const AccountsDisplay = () => {
   //   setAccountArray(data);
 
   // }
-  useEffect(() => {
-    fetch(process.env.REACT_APP_BACKEND_URL + "user/1/accounts")
-      .then((res) => res.json())
-      .then(setAccountArray);
-  }, []);
+  // useEffect(() => {
+  //   fetch(process.env.REACT_APP_BACKEND_URL + "user/1/accounts")
+  //     .then((res) => res.json())
+  //     .then(setAccountArray);
+  // }, []);
   useEffect(() => {
     const checksave = [];
     const creditLoan = [];

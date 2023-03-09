@@ -75,7 +75,7 @@ const NavBar = ({pageName, pageDescription})=>{
         </Container>
       </Navbar>
     );
-
+      
 }
 
 export default NavBar;
