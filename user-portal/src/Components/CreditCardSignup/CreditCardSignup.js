@@ -16,8 +16,9 @@ export default function CreditCardSignup(){
   return <div>
     <HeaderComponent pageName={"Sign up for a Credit Card"}/>
  
-    <h2 className="my-4">Available cards</h2>
-    <div className="d-flex flex-column align-items-center justify-content-center">
+    <h2 className="mt-4">Available cards</h2>
+    
+    <div className="d-flex flex-row flex-wrap gap-3 align-items-center justify-content-center p-4">
       {cardData.map((cardData, index) => <CreditCardSummary key={index} cardData={cardData}/>)}
     </div>
     
