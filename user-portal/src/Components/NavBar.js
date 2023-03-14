@@ -8,6 +8,7 @@ const NavBar = ({pageName, pageDescription})=>{
     const Navigate = useNavigate();
     const onClickHandler = (e)=>{ 
         localStorage.removeItem("UserToken")
+        localStorage.removeItem("UserId")
         Navigate("/")
     } 
 
@@ -75,7 +76,7 @@ const NavBar = ({pageName, pageDescription})=>{
         </Container>
       </Navbar>
     );
-      
+
 }
 
 export default NavBar;
