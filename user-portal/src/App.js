@@ -13,6 +13,8 @@ import Account from './Components/Accounts/Account';
 import React from 'react';
 import UserSettings from './Components/Users/UserSettings';
 import NavBar from './Components/NavBar';
+import CreditCardSignup from './Components/CreditCardSignup/CreditCardSignup';
+import LoanSignup from './Components/LoanSignup/LoanSignup';
 
 function App() {
   return (
@@ -38,6 +40,9 @@ function App() {
             />
             <Route path='Settings' element={<UserSettings></UserSettings>}>             
             </Route>
+
+            <Route path="CreditCards" element={<CreditCardSignup />}/>
+            <Route path="Loans" element={<LoanSignup />}/>
           </Routes>
         
         </BrowserRouter>
