@@ -1,26 +1,40 @@
-import { useEffect, useState } from "react";
-import HeaderComponent from "../Headercomponent"
-import CreditCardSummary from "./CreditCardSummary"
+import { Link, useLocation } from 'react-router-dom'
+import HeaderComponent from '../Headercomponent'
+import { useState } from 'react'
+import CreditCardConfirmation from './CreditCardConfirmation'
+import ApplicationForm from '../AbstractSignupForm/ApplicationForm'
 
 export default function CreditCardSignup(){
+  const [response, setResponse] = useState(null)
 
-  
+  const location = useLocation()
+  const {
+    id,
+    rewardsName
+  } = location.state;
 
-  const [cardData, setCardData] = useState([]);
-  useEffect(() => {
-    fetch(process.env.REACT_APP_BACKEND_URL + "creditCardTypes")
-    .then(res => res.json())
-    .then(setCardData)
-  }, [])
+  return <>
+    <HeaderComponent pageName={`Apply for a ${rewardsName} card`}/>
 
-  return <div>
-    <HeaderComponent pageName={"Sign up for a Credit Card"}/>
- 
-    <h2 className="mt-4">Available cards</h2>
-    
-    <div className="d-flex flex-row flex-wrap gap-3 align-items-center justify-content-center p-4">
-      {cardData.map((cardData, index) => <CreditCardSummary key={index} cardData={cardData}/>)}
-    </div>
-    
-  </div>
+    <Link className='btn btn-dark mt-4 me-auto' to=".." relative='path'>
+      Return to card selection
+    </Link>
+    {response
+      ? <CreditCardConfirmation
+        rewardsName={rewardsName}
+        response={response}
+      />
+      : <ApplicationForm
+        route="user/1/creditCardApplication"
+        handleResponse={setResponse}
+      >
+        <input 
+          hidden
+          readOnly
+          name='creditCardTypeId'
+          value={id}
+        />
+      </ApplicationForm>
+    }
+  </>
 }
