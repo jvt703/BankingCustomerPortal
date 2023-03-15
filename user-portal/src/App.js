@@ -13,8 +13,9 @@ import Account from './Components/Accounts/Account';
 import React from 'react';
 import UserSettings from './Components/Users/UserSettings';
 import NavBar from './Components/NavBar';
-import CreditCardSignup from './Components/CreditCardSignup/CreditCardSignup';
+import CreditCardsOverview from './Components/CreditCardSignup/CreditCardsOverview';
 import LoanSignup from './Components/LoanSignup/LoanSignup';
+import CreditCardSignup from './Components/CreditCardSignup/CreditCardSignup';
 
 function App() {
   return (
@@ -40,7 +41,10 @@ function App() {
             <Route path='Settings' element={<UserSettings></UserSettings>}>             
             </Route>
 
-            <Route path="CreditCards" element={<CreditCardSignup />}/>
+            <Route path="CreditCards">
+              <Route index element={<CreditCardsOverview />}/>
+              <Route path=":id" element={<CreditCardSignup />} />
+            </Route>
             <Route path="Loans" element={<LoanSignup />}/>
           </Routes>
         
