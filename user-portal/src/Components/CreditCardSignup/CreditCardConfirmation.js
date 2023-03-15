@@ -1,11 +1,19 @@
-export default function CreditCardConfirmation({rewardsName = String(), responseCode = Number()}){
+import { Link } from "react-router-dom";
 
-  const responseCodeBodyMap = {
-    200: <h5 className="alert alert-success">You have successfully signed up for a {rewardsName} card</h5>,
-    409: <h5 className="alert alert-warning">You already have a {rewardsName} card</h5>
-  }
+export default function CreditCardConfirmation({rewardsName = String(), response = Object()}){
 
-  return <div>
-    {responseCodeBodyMap[responseCode]}
+  return <div className="container p-4 w-25">
+    {
+      response.error && <h5 className="alert alert-warning">{response.error}</h5>
+    }
+    {
+      response.message && <h5 className="alert alert-success">You have successfully signed up for a {rewardsName} card</h5>
+    }
+    <Link
+      className="btn btn-dark mb-4"
+      to={"/"}
+    >
+      Go back home
+    </Link>
   </div>
 }
