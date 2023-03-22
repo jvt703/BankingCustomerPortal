@@ -1,26 +1,21 @@
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
 import { Link, useNavigate } from "react-router-dom";
 
 const NavBar = ({pageName, pageDescription})=>{
-    const [state, setState] = useState("test");
+
     const Navigate = useNavigate();
     const onClickHandler = (e)=>{ 
-        localStorage.removeItem("UserToken")
-        localStorage.removeItem("UserId")
+        localStorage.removeItem("accessToken")
+        localStorage.removeItem("refreshToken")
         Navigate("/")
     } 
 
     const clickToSettingsHandler=()=>{
         Navigate("/Settings")
     }
-    useEffect(
-      ()=>{
-        localStorage.setItem("UserToken", "Test")
-      },[]
 
-    )
   
     return (
       <Navbar className="NavBar" bg="primary" variant="dark" expand="lg">
@@ -65,14 +60,18 @@ const NavBar = ({pageName, pageDescription})=>{
                 id="navbarScrollingDropdown"
               >
                 <NavDropdown.Item onClick={clickToSettingsHandler}>
-                  <Nav.Link className="text-secondary text-decoration-none">
+                  <div>
+                    <Nav.Link className="text-secondary text-decoration-none">
                       Settings
                   </Nav.Link>
+                  </div>
+                  
                 </NavDropdown.Item>
                 <NavDropdown.Item onClick={clickToSettingsHandler}>
-                  <Nav.Link className="text-secondary text-decoration-none">
+                  <div><Nav.Link className="text-secondary text-decoration-none">
                       Setting
-                  </Nav.Link>
+                  </Nav.Link></div>
+                  
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={onClickHandler}>
