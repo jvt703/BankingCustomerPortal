@@ -67,9 +67,21 @@ const sortTransactionList = ((by) => {
             <li className="dropdown-item" onClick={() => {sortTransactionList(2)}}>Points</li>
           </ul>
         </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
         {transactionList.map(transaction => (
           <TransactionInfoCard sourceAccount={transaction.sourceAccount} destinationAccount={transaction.destinationAccount} amount={transaction.amount} points={transaction.points} date={transaction.date}/>
         ))}
+            </tbody>
+          </table>
     </div>
   );
 }
