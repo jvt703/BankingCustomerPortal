@@ -16,16 +16,17 @@ import NavBar from './Components/NavBar';
 import CreditCardsOverview from './Components/CreditCardSignup/CreditCardsOverview';
 import LoanSignup from './Components/LoanSignup/LoanSignup';
 import CreditCardSignup from './Components/CreditCardSignup/CreditCardSignup';
+import { Login } from './Components/login/Login';
 
 function App() {
   return (
     
-      <body className="App">
+      <div className="App">
        
         <BrowserRouter>
          <NavBar></NavBar>
           <Routes>
-            <Route path="/" element={<Accounts></Accounts>} />
+            <Route path="/" element={<Login></Login>} />
             <Route path="/Accounts">
               <Route index element={<Accounts></Accounts>} />
               <Route path=":id" element={<Account></Account>} />
@@ -50,7 +51,7 @@ function App() {
           </Routes>
         
         </BrowserRouter>
-      </body>
+      </div>
   
   );
 }
