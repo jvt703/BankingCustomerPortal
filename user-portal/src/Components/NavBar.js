@@ -54,6 +54,14 @@ const NavBar = ({pageName, pageDescription})=>{
                   Credit Cards
                 </Link>
               </Nav.Link>
+              <Nav.Link>
+                <Link
+                  className="text-light text-decoration-none"
+                  to={"/Loans"}
+                >
+                  Loans
+                </Link>
+              </Nav.Link>
               <NavDropdown
                 className="text-light"
                 title="User"
