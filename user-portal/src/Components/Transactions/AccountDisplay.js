@@ -18,16 +18,19 @@ const AccountDisplay = ()=>{
   });
   const [TransactionInfo, setTransactionInfo] =useState([])
 
-//   useEffect(async()=>{
-//         let headers = { Authorization: `Bearer ${Token||localStorage.getItem("userToken")}` };
-//         let response = await fetch('http://localhost:3001/user/{userId}/account/{accountId}', {headers})
-//         setAccountInfo(data)
-//         let headers = { Authorization: `Bearer ${Token||localStorage.getItem("userToken")}` };
-//         let response = await fetch('http://localhost:3001/Transaction/{userId}/account/{accountId}', {headers})
-//         let data = response.json();
-//         setTransactionInfo(data)
-//   }
-//   )
+  // useEffect(async()=>{
+  //       // let headers = { Authorization: `Bearer ${Token||localStorage.getItem("userToken")}` };
+  //       let response = await fetch(`http://localhost:3001/user/${userId}/account/${accountId}`)
+  //       let data = response.json();
+  //       setAccountInfo(data)
+  //       let headers = { Authorization: `Bearer ${Token||localStorage.getItem("userToken")}` };
+  //       let response = await fetch('http://localhost:3001/Transaction/{userId}/account/{accountId}', {headers})
+        
+  //       setTransactionInfo(data)
+  // }
+  // )
+
+  
 const [transactionList, setTransactionList] = useState([]);
 
 useEffect(

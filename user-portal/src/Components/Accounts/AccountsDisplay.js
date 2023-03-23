@@ -91,19 +91,19 @@ const AccountsDisplay = () => {
   const [CheckingSavingsArr, setCheckingSavingsArr] = useState([]);
   const [CreditLoanssArr, setCreditLoansArr] = useState([]);
 
-  //   call api for all Accounts associated with this user
+    // call api for all Accounts associated with this user
   // const loadAccounts = async ()=>{
-  //   let headers = { Authorization: `Bearer ${Token||localStorage.getItem("userToken")}` };
+  //   let headers = { Authorization: `Bearer ${Token||localStorage.getItem("accessToken")}` };
   //   let response = await fetch('http://localhost:3001/user/{1}/accounts', {headers})
   //   let data = response.json();
   //   setAccountArray(data);
 
   // }
-  // useEffect(() => {
-  //   fetch(process.env.REACT_APP_BACKEND_URL + "user/1/accounts")
-  //     .then((res) => res.json())
-  //     .then(setAccountArray);
-  // }, []);
+  useEffect(() => {
+    fetch(process.env.REACT_APP_BACKEND_URL + "user/1/accounts")
+      .then((res) => res.json())
+      .then(setAccountArray);
+  }, []);
   useEffect(() => {
     const checksave = [];
     const creditLoan = [];

@@ -10,23 +10,26 @@ import {
 } from "react-router-dom";
 import Accounts from './Components/Accounts/Accounts';
 import Account from './Components/Accounts/Account';
-import React from 'react';
+import React, { useState } from 'react';
 import UserSettings from './Components/Users/UserSettings';
 import NavBar from './Components/NavBar';
 import CreditCardsOverview from './Components/CreditCardSignup/CreditCardsOverview';
 import LoanSignup from './Components/LoanSignup/LoanSignup';
 import CreditCardSignup from './Components/CreditCardSignup/CreditCardSignup';
 import { Login } from './Components/login/Login';
+import PrivateRoutes from './Components/login/ProtectedRoute';
 
 function App() {
+  const [ isAuthenticated, setIsAuthenticate] =  useState(localStorage.getItem('accessToken') !== null);
+  
+  
   return (
-    
-      <div className="App">
-       
-        <BrowserRouter>
-         <NavBar></NavBar>
-          <Routes>
-            <Route path="/" element={<Login></Login>} />
+    <div className="App">
+      <BrowserRouter>
+        <NavBar></NavBar>
+        <Routes>
+          <Route path="/" element={<Login setIsAuthenticate={setIsAuthenticate}></Login>} />
+          <Route element={<PrivateRoutes isAuthenticated={isAuthenticated}></PrivateRoutes>}>
             <Route path="/Accounts">
               <Route index element={<Accounts></Accounts>} />
               <Route path=":id" element={<Account></Account>} />
@@ -40,19 +43,20 @@ function App() {
                 />
               }
             />
-            <Route path='Settings' element={<UserSettings></UserSettings>}>             
-            </Route>
+            <Route
+              path="Settings"
+              element={<UserSettings></UserSettings>}
+            ></Route>
 
             <Route path="CreditCards">
-              <Route index element={<CreditCardsOverview />}/>
+              <Route index element={<CreditCardsOverview />} />
               <Route path=":id" element={<CreditCardSignup />} />
             </Route>
-            <Route path="Loans" element={<LoanSignup />}/>
-          </Routes>
-        
-        </BrowserRouter>
-      </div>
-  
+            <Route path="Loans" element={<LoanSignup />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

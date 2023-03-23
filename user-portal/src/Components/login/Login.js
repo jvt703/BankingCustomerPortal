@@ -3,7 +3,7 @@ import HeaderComponent from '../Headercomponent';
 import Section from '../Section/Section';
 import { useNavigate } from 'react-router-dom';
 
-export function Login() {
+export function Login({setIsAuthenticate}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [warning, setWarning] = useState(' ');
@@ -16,7 +16,8 @@ const login = async () => {
   }
 
   try {
-    const url = process.env.REACT_APP_BACKEND_URL;
+    const url = process.env.REACT_APP_SECRET_URL;
+    console.log(url)
     const data = {
       email: email,
       password: password
@@ -31,6 +32,7 @@ const login = async () => {
     const json = await response.json();
     localStorage.setItem('accessToken', json.token);
     localStorage.setItem('refreshToken', json.refreshToken);
+    setIsAuthenticate(true);
     console.log(json);
     Navigate("/Accounts")
  

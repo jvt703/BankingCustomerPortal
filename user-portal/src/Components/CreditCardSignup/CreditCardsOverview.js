@@ -15,7 +15,7 @@ export default function CreditCardsOverview(){
 
   return <>
     <HeaderComponent pageName={"Sign up for a Credit Card"}/>
- 
+  
     <h2 className="mt-4">Available cards</h2>
     
     <div className="d-flex flex-row flex-wrap gap-3 align-items-center justify-content-center p-4">
