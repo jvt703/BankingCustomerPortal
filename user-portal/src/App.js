@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import Accounts from './Components/Accounts/Accounts';
 import Account from './Components/Accounts/Account';
-import React from 'react';
+import React, { useEffect } from 'react';
 import UserSettings from './Components/Users/UserSettings';
 import NavBar from './Components/NavBar';
 import CreditCardsOverview from './Components/CreditCardSignup/CreditCardsOverview';
@@ -19,8 +19,10 @@ import CreditCardSignup from './Components/CreditCardSignup/CreditCardSignup';
 import { Login } from './Components/login/Login';
 
 function App() {
+  useEffect(() => {
+    document.title = 'NineTen Bank';
+  }, []);
   return (
-    
       <div className="App">
        
         <BrowserRouter>
