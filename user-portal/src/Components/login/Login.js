@@ -3,7 +3,7 @@ import HeaderComponent from '../Headercomponent';
 import Section from '../Section/Section';
 import { useNavigate } from 'react-router-dom';
 
-export function Login({setIsAuthenticate}) {
+export function Login({setIsAuthenticated}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [warning, setWarning] = useState(' ');
@@ -16,14 +16,14 @@ const login = async () => {
   }
 
   try {
-    const url = process.env.REACT_APP_SECRET_URL;
-    console.log(url)
+    const url = process.env.REACT_APP_API_URL;
+    
     const data = {
       email: email,
       password: password
     };
     const response = await fetch(url, {
-      method: 'POST',
+      method: 'POST',   
       headers: {
         'Content-Type': 'application/json'
       },
@@ -32,13 +32,13 @@ const login = async () => {
     const json = await response.json();
     localStorage.setItem('accessToken', json.token);
     localStorage.setItem('refreshToken', json.refreshToken);
-    setIsAuthenticate(true);
+    setIsAuthenticated(true);
     console.log(json);
     Navigate("/Accounts")
  
   } catch (error) {
     console.error('Error:', error);
-    setWarning('An error occurred during login.');
+    setWarning('An error occurred during login. Please try again.');
   }
 };
     return (

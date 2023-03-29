@@ -20,15 +20,15 @@ import { Login } from './Components/login/Login';
 import PrivateRoutes from './Components/login/ProtectedRoute';
 
 function App() {
-  const [ isAuthenticated, setIsAuthenticate] =  useState(localStorage.getItem('accessToken') !== null);
+  const [ isAuthenticated, setIsAuthenticated] =  useState(localStorage.getItem('accessToken') !== null);
   
   
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar></NavBar>
+        <NavBar isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}></NavBar>
         <Routes>
-          <Route path="/" element={<Login setIsAuthenticate={setIsAuthenticate}></Login>} />
+          <Route path="/" element={<Login setIsAuthenticated={setIsAuthenticated}></Login>} />
           <Route element={<PrivateRoutes isAuthenticated={isAuthenticated}></PrivateRoutes>}>
             <Route path="/Accounts">
               <Route index element={<Accounts></Accounts>} />

@@ -3,12 +3,13 @@ import React from "react";
 import { Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
 import { Link, useNavigate } from "react-router-dom";
 
-const NavBar = ({pageName, pageDescription})=>{
+const NavBar = ({pageName, pageDescription, isAuthenticated, setIsAuthenticated})=>{
 
     const Navigate = useNavigate();
     const onClickHandler = (e)=>{ 
         localStorage.removeItem("accessToken")
         localStorage.removeItem("refreshToken")
+        setIsAuthenticated(false);
         Navigate("/")
     } 
 
@@ -29,11 +30,13 @@ const NavBar = ({pageName, pageDescription})=>{
               navbarScroll
             >
               <Nav.Link>
+                {!isAuthenticated?
                 <Link className="text-light text-decoration-none" to={"/"}>
                   Home
-                </Link>
+                </Link>:null }
+                
               </Nav.Link>
-                <Nav.Link>
+              {isAuthenticated?<><Nav.Link>
                 <Link className="text-light text-decoration-none" to={"/Accounts"}>
                   Accounts
                 </Link>
@@ -85,7 +88,8 @@ const NavBar = ({pageName, pageDescription})=>{
                 <NavDropdown.Item onClick={onClickHandler}>
                   Logout
                 </NavDropdown.Item>
-              </NavDropdown>
+              </NavDropdown></> :null}
+               
             </Nav>
           </Navbar.Collapse>
         </Container>
