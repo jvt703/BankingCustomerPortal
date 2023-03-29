@@ -60,17 +60,17 @@ const sortTransactionList = ((by) => {
      return (
     <div className="Subsections-container mx-5">
         <AccountInfoCard AccountInfo={AccountInfo} ></AccountInfoCard>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <div className="dropdown">
+          <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           Sort By
           </button>
-          <ul class="dropdown-menu">
+          <ul className="dropdown-menu">
             <li className="dropdown-item" onClick={() => {sortTransactionList(0)}}>Date</li>
             <li className="dropdown-item" onClick={() => {sortTransactionList(1)}}>Amount</li>
             <li className="dropdown-item" onClick={() => {sortTransactionList(2)}}>Points</li>
           </ul>
         </div>
-        <table class="table">
+        <table className="table">
             <thead>
               <tr>
                 <th>Type</th>
