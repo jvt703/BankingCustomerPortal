@@ -17,6 +17,7 @@ import CreditCardsOverview from './Components/CreditCardSignup/CreditCardsOvervi
 import LoanSignup from './Components/LoanSignup/LoanSignup';
 import CreditCardSignup from './Components/CreditCardSignup/CreditCardSignup';
 import { Login } from './Components/login/Login';
+import AccountSignupForm from './Components/Accounts/AccountSignup/AccountSignupForm';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/Accounts">
               <Route index element={<Accounts></Accounts>} />
               <Route path=":id" element={<Account></Account>} />
+              <Route path="new" element={<AccountSignupForm />} />
             </Route>
             <Route
               path="transaction/*"
