@@ -8,7 +8,7 @@ export default function RentSection(){
   
   return <>
     <LabeledDropdown
-      className={"col-6"}
+      className={"col-sm-6 col-12"}
       inputId="residenceOwnershipStatus"
       labelText="Residence ownership:"
       onChange={setSelection}
@@ -20,7 +20,7 @@ export default function RentSection(){
       useName
     />
     {selection && selection !== "OWN" && <LabeledInput
-      className="col-6"
+      className="col-sm-6 col-12"
       inputId="housingPayment"
       labelText="Housing payment:"
       pattern="\d*"

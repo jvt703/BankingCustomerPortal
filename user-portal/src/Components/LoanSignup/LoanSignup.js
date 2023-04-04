@@ -3,6 +3,7 @@ import ApplicationForm from "../AbstractSignupForm/ApplicationForm"
 import LabeledDropdown from "../AbstractSignupForm/LabeledDropdown"
 import LabeledInput from "../AbstractSignupForm/LabeledInput"
 import HeaderComponent from "../Headercomponent"
+import Section from "../Section/Section"
 import LoanConfirmation from "./LoanConfirmation"
 
 export default function LoanSignup(){
@@ -19,6 +20,7 @@ export default function LoanSignup(){
   return <>
     <HeaderComponent pageName={"Apply for a loan"}/>
 
+    <Section>
     {loanResponse 
       ? <LoanConfirmation loanResponse={loanResponse} />
       : <ApplicationForm
@@ -27,7 +29,7 @@ export default function LoanSignup(){
       >
         <h5>Loan details</h5>
         <LabeledInput 
-          className="col-6"
+          className="col-sm-6 col-12"
           inputId="loanAmount"
           labelText="Amount requested:"
           title="Input should be a whole number"
@@ -35,7 +37,7 @@ export default function LoanSignup(){
           useName
         />
         <LabeledDropdown
-          className="col-6"
+          className="col-sm-6 col-12"
           inputId="debitedAccountId"
           labelText="Account to be credited:"
           options={depositableAccounts.map(account => {
@@ -45,6 +47,6 @@ export default function LoanSignup(){
         />
       </ApplicationForm>
     }
-    
+    </Section>
   </>
 }
