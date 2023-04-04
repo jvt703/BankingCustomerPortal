@@ -20,7 +20,7 @@ function Subsection({ CardArray, SubsectionName }) {
 
   return (
     <div className="mt-3">
-      <h3 className="text-start">{SubsectionName}</h3>
+      <h3 className="text-start ms-1 ms-md-5">{SubsectionName}</h3>
       <div className="Subsection-container mt-3">{accountCards}</div>
       {displayedCards < CardArray.length && (
         <button className="mt-3 view-button" onClick={handleShowMore}>

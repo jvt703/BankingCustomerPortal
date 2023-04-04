@@ -30,7 +30,7 @@ export default function ApplicationForm({children,
     className="my-4 container"
     onSubmit={submitRequest}
   >
-    <div className="row g-3 align-items-end w-100">
+    <div className="row g-3 align-items-end">
       <UserInfoFields />
       {children}
       <input 

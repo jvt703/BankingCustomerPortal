@@ -20,17 +20,24 @@ const AccountDisplay = ()=>{
 
   // useEffect(async()=>{
   //       // let headers = { Authorization: `Bearer ${Token||localStorage.getItem("userToken")}` };
-  //       let response = await fetch(`http://localhost:3001/user/${userId}/account/${accountId}`)
+  //       let response = await fetch(`http://localhost:8080/user/1/account/1`
+  //       // , {headers}
+  //       )
   //       let data = response.json();
-  //       setAccountInfo(data)
-  //       let headers = { Authorization: `Bearer ${Token||localStorage.getItem("userToken")}` };
-  //       let response = await fetch('http://localhost:3001/Transaction/{userId}/account/{accountId}', {headers})
-        
-  //       setTransactionInfo(data)
-  // }
-  // )
 
-  
+  //       setAccountInfo(data)
+  //       // let headers = { Authorization: `Bearer ${Token||localStorage.getItem("userToken")}` };
+  //       // let response = await fetch('http://localhost:3001/Transaction/{userId}/account/{accountId}', {headers})
+  //       // setTransactionInfo(data)
+  // })
+  useEffect(
+    () => {(
+    async () => {
+      const baseURL = ("http://localhost:8080/user/1/account/1")
+      const account = await axios.get(baseURL);
+      setAccountInfo(account.data);
+    })();}, []
+  );
 const [transactionList, setTransactionList] = useState([]);
 
 useEffect(
@@ -57,8 +64,8 @@ const sortTransactionList = ((by) => {
   }
 });
 
-     return (
-    <div className="Subsections-container mx-5">
+  return (
+    <div className="d-flex flex-column gap-3 mx-1 mx-md-5">
         <AccountInfoCard AccountInfo={AccountInfo} ></AccountInfoCard>
         <div className="dropdown">
           <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

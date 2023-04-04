@@ -18,6 +18,7 @@ import LoanSignup from './Components/LoanSignup/LoanSignup';
 import CreditCardSignup from './Components/CreditCardSignup/CreditCardSignup';
 import { Login } from './Components/login/Login';
 import PrivateRoutes from './Components/login/ProtectedRoute';
+import AccountSignupForm from './Components/Accounts/AccountSignup/AccountSignupForm';
 
 function App() {
   const [ isAuthenticated, setIsAuthenticated] =  useState(localStorage.getItem('accessToken') !== null);
@@ -33,6 +34,7 @@ function App() {
             <Route path="/Accounts">
               <Route index element={<Accounts></Accounts>} />
               <Route path=":id" element={<Account></Account>} />
+              <Route path="new" element={<AccountSignupForm />} />
             </Route>
             <Route
               path="transaction/*"
