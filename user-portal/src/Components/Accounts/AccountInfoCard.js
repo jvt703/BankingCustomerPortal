@@ -6,15 +6,16 @@ const AccountInfoCard = ({AccountInfo}) => {
  
   return (
     <>
-  <div className='p-3 d-flex flex-row Account-card card' >
-        
-        <div className='d-flex flex-row flex-wrap bd-highlight'>
-          <div className='Card-title '>Name: {AccountInfo.accountName}</div>  
-          <div className='Account-name ms-3'>
-            <div>Account Type: {AccountInfo.accountTypeName}</div>
+    <div className='p-3 d-flex flex-column flex-md-row gap-3 flex-wrap Account-card card justify-content-between align-items-center' >
+        <div className='bd-highlight'>
+          <div className="d-flex align-items-center align-items-md-start flex-column">
+            <div className='h3'>Name:<wbr /> {AccountInfo.accountName}</div>  
+            <div className='Account-name'>
+              <div>Account Type: {AccountInfo.accountTypeName}</div>
+            </div>
           </div>
         </div>
-         <div className='Account-Balance flex-grow my-auto ms-auto'>Current Balance: ${AccountInfo.balance}</div>
+        <div className='Account-Balance'>Current Balance: ${AccountInfo.balance}</div>
     </div>
 
     </>

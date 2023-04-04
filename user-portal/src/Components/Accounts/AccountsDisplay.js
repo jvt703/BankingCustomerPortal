@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Subsection from "../Section/Subsection";
+import AccountsSectionTitle from "./AccountSignup/AccountsSectionTitle";
 
 const AccountsDisplay = () => {
   const [AccountArray, setAccountArray] = useState([
@@ -78,7 +79,7 @@ const AccountsDisplay = () => {
     {
       id: 1677688,
       userId: 1,
-      accountTypeName: "Loans",
+      accountTypeName: "Loan",
       accountTypeDescription: "account for general spending purposes",
       balance: 1000.0,
       confirmation: false,
@@ -99,11 +100,11 @@ const AccountsDisplay = () => {
   //   setAccountArray(data);
 
   // }
-  // useEffect(() => {
-  //   fetch(process.env.REACT_APP_BACKEND_URL + "user/1/accounts")
-  //     .then((res) => res.json())
-  //     .then(setAccountArray);
-  // }, []);
+  useEffect(() => {
+    fetch(process.env.REACT_APP_BACKEND_URL + "user/1/accounts")
+      .then((res) => res.json())
+      .then(setAccountArray);
+  }, []);
   useEffect(() => {
     const checksave = [];
     const creditLoan = [];
@@ -114,7 +115,7 @@ const AccountsDisplay = () => {
       ) {
         checksave.push(AccountArray[ele]);
       } else if (
-        AccountArray[ele].accountTypeName === "Loans" ||
+        AccountArray[ele].accountTypeName === "Loan" ||
         AccountArray[ele].accountTypeName === "Credit"
       ) {
         creditLoan.push(AccountArray[ele]);
@@ -125,10 +126,10 @@ const AccountsDisplay = () => {
   }, [AccountArray]);
 
   return (
-    <div className="Subsections-container mx-5">
+    <div>
       <Subsection
         CardArray={CheckingSavingsArr}
-        SubsectionName={"Checking/Savings"}
+        SubsectionName={<AccountsSectionTitle />}
       />
       <Subsection CardArray={CreditLoanssArr} SubsectionName={"Loans/Credit"} />
     </div>
