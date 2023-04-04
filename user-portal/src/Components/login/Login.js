@@ -43,10 +43,10 @@ const login = async () => {
 };
     return (
          <>
-        <HeaderComponent pageName={"login"} pageDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"/>
+        <HeaderComponent pageName={"Login Page"} pageDescription=""/>
         <Section title="Login">
-            <div className="centered">
-        <form className='card border  shadow-0 px-5 pt-5 pb-3'>
+            <div className="centered align-self-center">
+        <form className='card border shadow-0 px-5 pt-5 pb-3' style={{width: "20rem"}}>
         <h4 style={{ marginRight: "auto" }} className='p-2'><strong>Sign in</strong></h4>
         <input className='m-2 p-2' type="text" placeholder="Email address" name="Email address" onChange={(e) => setEmail(e.target.value)}/>
         <input className='m-2 p-2' type="password" placeholder="Password" name="Create password" onChange={(e) => setPassword(e.target.value)}/>

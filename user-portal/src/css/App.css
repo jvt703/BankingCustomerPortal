@@ -8,16 +8,18 @@
 
 .App {
   text-align: center;
+  background-image: linear-gradient(rgb(248, 248, 248), rgb(24, 93, 242));
 }
 
 .Header {
   font-weight: 700;
   box-sizing: border-box;
-  
+  background-color: #fff;
   font-family: 'Montserrat', cursive;
   height: max-content;
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
 }
 
 .banner-container {
@@ -40,6 +42,7 @@
 
 .NavBar {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-bottom: rgba(0, 0, 0, 0.437) solid .5px;
 }
 
 .Account-card {
@@ -93,6 +96,7 @@
 
 .Section-container {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;  
+  background-color: #aad6f6;
 }
 
 .Subsection-container {
