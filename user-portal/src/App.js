@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import Accounts from './Components/Accounts/Accounts';
 import Account from './Components/Accounts/Account';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import UserSettings from './Components/Users/UserSettings';
 import NavBar from './Components/NavBar';
 import CreditCardsOverview from './Components/CreditCardSignup/CreditCardsOverview';
@@ -22,7 +22,9 @@ import AccountSignupForm from './Components/Accounts/AccountSignup/AccountSignup
 
 function App() {
   const [ isAuthenticated, setIsAuthenticated] =  useState(localStorage.getItem('accessToken') !== null);
-  
+   useEffect(() => {
+    document.title = 'NineTen Bank';
+  }, []);
   
   return (
     <div className="App">
@@ -41,7 +43,7 @@ function App() {
               element={
                 <HeaderComponent
                   pageName="Transaction"
-                  pageDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+                  pageDescription=""
                 />
               }
             />
