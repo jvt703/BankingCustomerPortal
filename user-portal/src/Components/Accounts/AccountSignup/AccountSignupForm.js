@@ -57,7 +57,7 @@ export default function AccountSignupForm(){
         </select>
       </div>
       <button type="submit" disabled={!(accountName && accountTypeId && !submissionResponse)} className="btn btn-primary">Submit</button>
-      {submissionResponse && <div class="alert alert-success" role="alert">
+      {submissionResponse && <div className="alert alert-success" role="alert">
         Account {submissionResponse.accountName} successfully created!
       </div>}
     </form>
