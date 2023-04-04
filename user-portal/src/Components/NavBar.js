@@ -3,12 +3,13 @@ import React from "react";
 import { Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
 import { Link, useNavigate } from "react-router-dom";
 
-const NavBar = ({pageName, pageDescription})=>{
+const NavBar = ({pageName, pageDescription, isAuthenticated, setIsAuthenticated})=>{
 
     const Navigate = useNavigate();
     const onClickHandler = (e)=>{ 
         localStorage.removeItem("accessToken")
         localStorage.removeItem("refreshToken")
+        setIsAuthenticated(false);
         Navigate("/")
     } 
 
@@ -20,26 +21,49 @@ const NavBar = ({pageName, pageDescription})=>{
     return (
       <Navbar className="NavBar" bg="primary" variant="dark" expand="lg">
         <Container fluid>
-          <Navbar.Brand as={Link} to="/">
-            NineTen Bank
-          </Navbar.Brand>
+          <Navbar.Brand href="/">NineTen Bank</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-              <Nav.Link as={Link} className="text-light" to="/">
-                Home
+            <Nav
+              className="me-auto my-2 my-lg-0"
+              style={{ maxHeight: "100px" }}
+              navbarScroll
+            >
+              <Nav.Link>
+                {!isAuthenticated?
+                <Link className="text-light text-decoration-none" to={"/"}>
+                  Home
+                </Link>:null }
+                
               </Nav.Link>
-              <Nav.Link as={Link} className="text-light" to="/Accounts">
-                Accounts
+              {isAuthenticated?<><Nav.Link>
+                <Link className="text-light text-decoration-none" to={"/Accounts"}>
+                  Accounts
+                </Link>
               </Nav.Link>
-              <Nav.Link as={Link} className="text-light" to="/Transaction">
-                Transaction
+              <Nav.Link>
+                <Link
+                  className="text-light text-decoration-none"
+                  to={"/Transaction"}
+                >
+                  Transaction
+                </Link>
               </Nav.Link>
-              <Nav.Link as={Link} className="text-light" to="/CreditCards">
-                Credit Cards
+               <Nav.Link>
+                <Link
+                  className="text-light text-decoration-none"
+                  to={"/CreditCards"}
+                >
+                  Credit Cards
+                </Link>
               </Nav.Link>
-              <Nav.Link as={Link} className="text-light" to="/Loans">
-                Loans
+              <Nav.Link>
+                <Link
+                  className="text-light text-decoration-none"
+                  to={"/Loans"}
+                >
+                  Loans
+                </Link>
               </Nav.Link>
               <NavDropdown
                 className="text-light"
@@ -47,20 +71,19 @@ const NavBar = ({pageName, pageDescription})=>{
                 id="navbarScrollingDropdown"
               >
                 <NavDropdown.Item onClick={clickToSettingsHandler}>
-                  <Nav.Link as={Link} className="text-secondary" to="/Settings">
-                    Settings
+                  <div>
+                    <Nav.Link className="text-secondary text-decoration-none">
+                      Settings
                   </Nav.Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item onClick={clickToSettingsHandler}>
-                  <Nav.Link as={Link} className="text-secondary" to="/Setting">
-                    Setting
-                  </Nav.Link>
+                  </div>
+                  
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={onClickHandler}>
                   Logout
                 </NavDropdown.Item>
-              </NavDropdown>
+              </NavDropdown></> :null}
+               
             </Nav>
           </Navbar.Collapse>
         </Container>
