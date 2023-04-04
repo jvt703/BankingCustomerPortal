@@ -29,10 +29,10 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}></NavBar>
+        <NavBar isAuthenticated={true} setIsAuthenticated={setIsAuthenticated}></NavBar>
         <Routes>
           <Route path="/" element={<Login setIsAuthenticated={setIsAuthenticated}></Login>} />
-          <Route element={<PrivateRoutes isAuthenticated={isAuthenticated}></PrivateRoutes>}>
+          <Route element={<PrivateRoutes isAuthenticated={true}></PrivateRoutes>}>
             <Route path="/Accounts">
               <Route index element={<Accounts></Accounts>} />
               <Route path=":id" element={<Account></Account>} />

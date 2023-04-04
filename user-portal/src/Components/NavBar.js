@@ -78,12 +78,6 @@ const NavBar = ({pageName, pageDescription, isAuthenticated, setIsAuthenticated}
                   </div>
                   
                 </NavDropdown.Item>
-                <NavDropdown.Item onClick={clickToSettingsHandler}>
-                  <div><Nav.Link className="text-secondary text-decoration-none">
-                      Setting
-                  </Nav.Link></div>
-                  
-                </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={onClickHandler}>
                   Logout
