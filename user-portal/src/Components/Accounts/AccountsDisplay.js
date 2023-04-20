@@ -13,7 +13,7 @@ const AccountsDisplay = () => {
       confirmation: false,
       active: true,
       pointsBalance: 0,
-      accountName: "Personal Checkings",
+      accountName: "College Fund",
       createdDate: 1677683776994,
     },
     {
@@ -25,7 +25,7 @@ const AccountsDisplay = () => {
       confirmation: false,
       active: true,
       pointsBalance: 0,
-      accountName: "Personal Savings",
+      accountName: "College Fund",
       createdDate: 1677683776994,
     },
     {
