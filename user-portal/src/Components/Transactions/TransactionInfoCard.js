@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
 
-const TransactionInfoCard = ({sourceAccount, destinationAccount, amount, date, points}) => {
+const TransactionInfoCard = ({sourceAccount, destinationAccount, amount, date, points, reversal}) => {
     const accountID = 1;
-    const type = (sourceAccount === accountID ? "Deposit" : (destinationAccount === accountID ? "Widthdrawl" : "Transfer"));
+    let type = (sourceAccount === accountID ? "Widthdrawl" : (destinationAccount === accountID ? "Deposit" : "Transfer"));
+    if (type === "Transfer") {return (null)}
+    if (reversal === true) {type += " (REVERSAL)"}
     return (
         // <div className="card">
         //     <div className="card-body">

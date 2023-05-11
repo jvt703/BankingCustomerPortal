@@ -43,7 +43,7 @@ const [transactionList, setTransactionList] = useState([]);
 useEffect(
   () => {(
   async () => {
-    const baseURL = ("http://localhost:8080/transaction")
+    const baseURL = ("http://localhost:8082/transaction")
     const users = await axios.get(baseURL);
     setTransactionList(users.data);
   })();}, []
@@ -88,7 +88,7 @@ const sortTransactionList = ((by) => {
             </thead>
             <tbody>
         {transactionList.map(transaction => (
-          <TransactionInfoCard sourceAccount={transaction.sourceAccount} destinationAccount={transaction.destinationAccount} amount={transaction.amount} points={transaction.points} date={transaction.date}/>
+          <TransactionInfoCard sourceAccount={transaction.sourceAccount} destinationAccount={transaction.destinationAccount} amount={transaction.amount} points={transaction.points} date={transaction.date} reversal={transaction.reversal}/>
         ))}
             </tbody>
           </table>
