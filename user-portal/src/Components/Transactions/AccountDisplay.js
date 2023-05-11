@@ -9,11 +9,11 @@ const AccountDisplay = ()=>{
     userId: 1,
     accountTypeName: "checking",
     accountTypeDescription: "account for general spending purposes",
-    balance: 1110.0,
+    balance: 10.0,
     confirmation: false,
     active: true,
     pointsBalance: 0,
-    accountName: "College savings",
+    accountName: "Peach Ring Fund",
     createdDate: 1677683776994,
   });
   const [TransactionInfo, setTransactionInfo] =useState([])

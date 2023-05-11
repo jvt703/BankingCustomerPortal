@@ -32,6 +32,7 @@ const login = async () => {
     const json = await response.json();
     localStorage.setItem('accessToken', json.token);
     localStorage.setItem('refreshToken', json.refreshToken);
+    localStorage.setItem('id', json.id);
     setIsAuthenticated(true);
     console.log(json);
     Navigate("/Accounts")

@@ -9,6 +9,7 @@ const NavBar = ({pageName, pageDescription, isAuthenticated, setIsAuthenticated}
     const onClickHandler = (e)=>{ 
         localStorage.removeItem("accessToken")
         localStorage.removeItem("refreshToken")
+        localStorage.removeItem("id")
         setIsAuthenticated(false);
         Navigate("/")
     } 
