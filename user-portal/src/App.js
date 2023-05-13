@@ -20,6 +20,7 @@ import { Login } from './Components/login/Login';
 import PrivateRoutes from './Components/login/ProtectedRoute';
 import AccountSignupForm from './Components/Accounts/AccountSignup/AccountSignupForm';
 import { is } from '@babel/types';
+import Calander from './Components/Calander/Calander';
 
 function App() {
   const [ isAuthenticated, setIsAuthenticated] =  useState(localStorage.getItem('accessToken') !== null);
@@ -30,10 +31,10 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}></NavBar>
+        <NavBar isAuthenticated={true} setIsAuthenticated={setIsAuthenticated}></NavBar>
         <Routes>
           <Route path="/" element={<Login setIsAuthenticated={setIsAuthenticated}></Login>} />
-          <Route element={<PrivateRoutes isAuthenticated={isAuthenticated}></PrivateRoutes>}>
+          <Route element={<PrivateRoutes isAuthenticated={true}></PrivateRoutes>}>
             <Route path="/Accounts">
               <Route index element={<Accounts></Accounts>} />
               <Route path=":id" element={<Account></Account>} />
@@ -48,6 +49,12 @@ function App() {
                 />
               }
             />
+            <Route
+            path="Appointments"
+            element={<Calander></Calander>}
+            >
+
+            </Route>
             <Route
               path="Settings"
               element={<UserSettings></UserSettings>}

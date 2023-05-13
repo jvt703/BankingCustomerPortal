@@ -150,6 +150,9 @@
   vertical-align: baseline;
   white-space: nowrap;
 }
+.width-15 {
+  width: 15%;
+}
 
 .view-button:hover,
 .view-button:focus {

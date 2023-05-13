@@ -65,6 +65,14 @@ const NavBar = ({pageName, pageDescription, isAuthenticated, setIsAuthenticated}
                   Loans
                 </Link>
               </Nav.Link>
+              <Nav.Link>
+                <Link
+                  className="text-light text-decoration-none"
+                  to={"/Appointments"}
+                >
+                  Appointments
+                </Link>
+              </Nav.Link>
               <NavDropdown
                 className="text-light"
                 title="User"
