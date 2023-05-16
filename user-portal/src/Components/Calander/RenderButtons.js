@@ -1,11 +1,12 @@
 import React from 'react';
 
 
-const renderButtons = (slots,date) => {
+const renderButtons = (slots,date, handleGenerate) => {
     const handleButtonClick = (hour, minute) => {
     const clickedDateTime = new Date(date);
     clickedDateTime.setHours(hour, minute);
     const unixTime = clickedDateTime.getTime() / 1000;
+    handleGenerate();
     console.log(unixTime);
   };
 
