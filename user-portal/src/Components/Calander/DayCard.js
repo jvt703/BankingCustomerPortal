@@ -13,16 +13,21 @@ const DayCard = ({ date, branchId }) => {
   
 
   const generateTimeSlots = (appointments) => {
-    const startTime = new Date().setHours(8, 0, 0, 0); // Set start time to 9 am
-    const endTime = new Date().setHours(17, 0, 0, 0); // Set end time to 5 pm
-
+    const startTime = new Date(date).setHours(8, 0, 0, 0); // Set start time to 9 am
+    const endTime = new Date(date).setHours(17, 0, 0, 0); // Set end time to 5 pm
+    
     const timeSlots = [];
     for (let currentTime = startTime; currentTime <= endTime; currentTime += 30 * 60 * 1000) {
       const time = new Date(currentTime);
       const timeString = time.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
-
+      
       // Check if the current time slot is available by comparing with the appointments
-      const isAvailable = appointments.every((appointment) => appointment.time !== timeString);
+      const isAvailable = appointments.every((appointment) => {
+        
+        
+       return appointment !== Math.floor(new Date(currentTime).getTime() / 1000)
+      
+      });
 
       if (isAvailable) {
         timeSlots.push(timeString);
@@ -42,7 +47,6 @@ const DayCard = ({ date, branchId }) => {
       branchId: 1,
       });
 
-
     try {
       const response = await fetch(`http://localhost:8081/appointments/byBranchAndDate?${queryParams}`, {
         method: 'GET',
@@ -50,9 +54,11 @@ const DayCard = ({ date, branchId }) => {
           'Content-Type': 'application/json',
         }
       });
+      
       if (response.ok) {
         const appointments = await response.json();
-       const timeSlots = generateTimeSlots(appointments.map(appointment => appointment.appointmentdatetime));
+    
+       const timeSlots = generateTimeSlots(appointments.map(appointment => appointment.appointmentDateTime));
         setTimeSlots(timeSlots);
       } else {
         console.error('Failed to fetch appointments from the API.');

@@ -3,12 +3,13 @@ import DayCard from "./DayCard";
 import HeaderComponent from "../Headercomponent";
 import Section from "../Section/Section";
 import Dropdown from "./BranchDropdown";
+import UserAppointments from "./UserAppointments";
 
 
  const getNextThreeDays = (currentDayIndex) => {
     const today = new Date();
     const nextThreeDays = [];
-    for (let i = currentDayIndex; i < currentDayIndex + 3; i++) {
+    for (let i = currentDayIndex; i < currentDayIndex + 1; i++) {
       const nextDay = new Date();
       nextDay.setDate(today.getDate() + i);
       nextThreeDays.push(nextDay);
@@ -53,7 +54,9 @@ const Calander = () => {
             Next Day
           </button>
         </div>
+        <UserAppointments/>
       </Section>
+      
     </>
   );
 };
