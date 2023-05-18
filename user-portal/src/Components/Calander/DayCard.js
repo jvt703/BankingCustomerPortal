@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import renderButtons from './RenderButtons';
+import RenderButtons from './RenderButtons';
 
-const DayCard = ({ date, branchId }) => {
+const DayCard = ({ date, branchId, getUsersAppointments }) => {
   // Generate an array of time slots from 9 am to 5 pm with 30-minute increments
   // const timeSlots = [];
 
 
     const [timeSlots, setTimeSlots] = useState([]);
 
-
-     
-  
 
   const generateTimeSlots = (appointments) => {
     const startTime = new Date(date).setHours(8, 0, 0, 0); // Set start time to 9 am
@@ -39,7 +36,7 @@ const DayCard = ({ date, branchId }) => {
 
    const getAllAppointments = async () => {
     const startTime = new Date(date).setHours(8, 0, 0, 0); // Set start time to 8 am
-    const endTime = new Date(date).setHours(17, 0, 0, 0); // Set end time to 5 pm
+    const endTime = new Date(date).setHours(18, 0, 0, 0); // Set end time to 5 pm
 
     const queryParams = new URLSearchParams({
       startDateTime: Math.floor(new Date(startTime).getTime() / 1000).toString(),
@@ -57,9 +54,10 @@ const DayCard = ({ date, branchId }) => {
       
       if (response.ok) {
         const appointments = await response.json();
-    
+
        const timeSlots = generateTimeSlots(appointments.map(appointment => appointment.appointmentDateTime));
         setTimeSlots(timeSlots);
+       
       } else {
         console.error('Failed to fetch appointments from the API.');
       }
@@ -74,6 +72,7 @@ const DayCard = ({ date, branchId }) => {
   }, [date, branchId]);
   const handleGenerate = async () => {
     await getAllAppointments();
+    console.log("getting all appointments")
   };
 
   const currentDate = new Date(date).toLocaleDateString([], {
@@ -85,9 +84,10 @@ const DayCard = ({ date, branchId }) => {
   
 
   return (
-    <div className="card m-1 w-25">
+    <div className="card m-1 w-25 day-card">
      <h2>{currentDate}</h2>
-        {renderButtons(timeSlots, currentDate, handleGenerate)}
+        {/* {renderButtons(timeSlots, currentDate, handleGenerate)} */}
+       <RenderButtons slots={timeSlots} currentDate={currentDate} handleGenerate={handleGenerate} getUsersAppointments={getUsersAppointments} />
     </div>
   );
 };

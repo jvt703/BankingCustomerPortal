@@ -1,32 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-const UserAppointments = () =>{
-const [appointments, setAppointments] = useState([])
+const UserAppointments = ({ onAppointmentDelete, appointments, getUsersAppointments }) =>{
 
- const getUsersAppointments = async () => {
-  
 
-    const userId = 1;
-
-    try {
-      const response = await fetch(`http://localhost:8081/appointments/user/${userId}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      });
-      
-      if (response.ok) {
-        const appointments = await response.json();
-        setAppointments(appointments)
-        console.log(appointments)
-      } else {
-        console.error('Failed to fetch appointments from the API.');
-      }
-    } catch (error) {
-      console.error('Error occurred while fetching appointments:', error);
-    }
-  }
+ 
 
   const handleDelete = async (appointmentId) => {
     try {
@@ -47,9 +24,7 @@ const [appointments, setAppointments] = useState([])
       console.error('Error occurred while deleting the appointment:', error);
     }
   };
-  useEffect(() => {
-    getUsersAppointments();
-  }, []);
+  
 
     return (
     <div>
@@ -57,8 +32,7 @@ const [appointments, setAppointments] = useState([])
       <ul>
         {appointments.map(appointment => (
           <li key={appointment.appointmentId}>
-            <p>Appointment ID: {appointment.userId}</p>
-            <p>Appointment Date: {appointment.branchName}</p>
+            <p>Appointment ID: {appointment.appointmentId}</p>
            <p>Appointment Date: {new Date(appointment.appointmentDateTime * 1000).toLocaleString()}</p>
             <button onClick={() => handleDelete(appointment.appointmentId)}>Delete</button>
           </li>
