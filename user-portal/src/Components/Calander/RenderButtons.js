@@ -27,38 +27,7 @@ const RenderButtons = ({slots, currentDate, handleGenerate, getUsersAppointments
     setModalOpen(false);
   };
 
-  const handleConfirm = async (timeSlot) => {
-    
-  const appointmentData = {
-    userId: 1,
-    branchId: 1,
-    appointmentDateTime: timeSlot,
-    bankerId: 1,
-    serviceTypeId: 2
-  };
-
-  try {
-    const response = await fetch('http://localhost:8081/appointments/create', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(appointmentData),
-    });
-
-    if (response.ok) {
-      // Handle success response
-      console.log('Appointment created successfully');
-      handleGenerate()
-      getUsersAppointments()
-    } else {
-      // Handle error response
-      console.error('Failed to create appointment');
-    }
-  } catch (error) {
-    console.error('Error occurred while creating appointment:', error);
-  }
-};
+  
 
   const buttons = slots.map((timeSlot, index) => {
     const [time, period] = timeSlot.split(" ");
@@ -99,8 +68,9 @@ const RenderButtons = ({slots, currentDate, handleGenerate, getUsersAppointments
         <TimeSlotModal
           isOpen={modalOpen}
           onClose={closeModal}
-          onConfirm={handleConfirm}
           selectedTimeSlot={selectedTimeSlot}
+          handleGenerate={handleGenerate}
+          getUsersAppointments={getUsersAppointments}
         />
       )}
     </div>
