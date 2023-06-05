@@ -21,7 +21,7 @@ import UserAppointments from "./UserAppointments";
 const Calander = () => {
   const [branchId, setBranchId] = useState('');
   const [currentDayIndex, setCurrentDayIndex] = useState(1); // Start with index 1 to display the second day as initial state
-  const [appointmentDeleted, setAppointmentDeleted] = useState(false);
+  
   const [appointments, setAppointments] = useState([])
   
  const getUsersAppointments = async () => {

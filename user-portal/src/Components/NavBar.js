@@ -65,6 +65,7 @@ const NavBar = ({pageName, pageDescription, isAuthenticated, setIsAuthenticated}
                   Loans
                 </Link>
               </Nav.Link>
+              
               <Nav.Link>
                 <Link
                   className="text-light text-decoration-none"

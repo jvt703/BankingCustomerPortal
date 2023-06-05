@@ -18,6 +18,7 @@ const TimeSlotModal = ({ isOpen, onClose, selectedTimeSlot, getUsersAppointments
         if (response.ok) {
           const data = await response.json();
           setServiceTypeList(data);
+          setServiceTypeId(data[0].id)
         } else {
           throw new Error('Error fetching service types');
         }
@@ -61,9 +62,9 @@ const TimeSlotModal = ({ isOpen, onClose, selectedTimeSlot, getUsersAppointments
     branchId: 1,
     appointmentDateTime: timeSlot,
     bankerId: 1,
-    serviceTypeId: 2
+    serviceTypeId: serviceTypeId
   };
-
+  
   try {
     const response = await fetch('http://localhost:8081/appointments/create', {
       method: 'POST',

@@ -19,8 +19,8 @@ import CreditCardSignup from './Components/CreditCardSignup/CreditCardSignup';
 import { Login } from './Components/login/Login';
 import PrivateRoutes from './Components/login/ProtectedRoute';
 import AccountSignupForm from './Components/Accounts/AccountSignup/AccountSignupForm';
-import { is } from '@babel/types';
 import Calander from './Components/Calander/Calander';
+import Transactions from './Components/Transactions/Transactions';
 
 function App() {
   const [ isAuthenticated, setIsAuthenticated] =  useState(localStorage.getItem('accessToken') !== null);
@@ -43,10 +43,9 @@ function App() {
             <Route
               path="transaction/*"
               element={
-                <HeaderComponent
-                  pageName="Transaction"
-                  pageDescription=""
-                />
+                <Transactions>
+                
+                </Transactions>
               }
             />
             <Route
