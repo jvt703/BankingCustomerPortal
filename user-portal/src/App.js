@@ -2,7 +2,7 @@
 import './css/App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import HeaderComponent from './Components/Headercomponent';
+
 import {
   BrowserRouter,
   Routes,
@@ -21,6 +21,8 @@ import PrivateRoutes from './Components/login/ProtectedRoute';
 import AccountSignupForm from './Components/Accounts/AccountSignup/AccountSignupForm';
 import Calander from './Components/Calander/Calander';
 import Transactions from './Components/Transactions/Transactions';
+import PasswordResetDisplay from './Components/PasswordReset/PasswordResetDisplay';
+import PasswordUpdate from './Components/PasswordReset/PasswordUpdate';
 
 function App() {
   const [ isAuthenticated, setIsAuthenticated] =  useState(localStorage.getItem('accessToken') !== null);
@@ -31,9 +33,14 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar isAuthenticated={true} setIsAuthenticated={setIsAuthenticated}></NavBar>
+        <NavBar isAuthenticated={false} setIsAuthenticated={setIsAuthenticated}></NavBar>
         <Routes>
           <Route path="/" element={<Login setIsAuthenticated={setIsAuthenticated}></Login>} />
+          <Route
+              path="/PasswordUpdate/:id/:recoveryToken"
+              element={<PasswordUpdate />}
+            />
+           <Route path="/AccountRecovery" element={<PasswordResetDisplay></PasswordResetDisplay>} />
           <Route element={<PrivateRoutes isAuthenticated={true}></PrivateRoutes>}>
             <Route path="/Accounts">
               <Route index element={<Accounts></Accounts>} />

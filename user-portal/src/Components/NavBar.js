@@ -29,13 +29,24 @@ const NavBar = ({pageName, pageDescription, isAuthenticated, setIsAuthenticated}
               className="me-auto my-2 my-lg-0"
               navbarScroll
             >
+              {!isAuthenticated?<>
               <Nav.Link>
-                {!isAuthenticated?
+                
                 <Link className="text-light text-decoration-none" to={"/"}>
                   Home
-                </Link>:null }
+                </Link>
+                
                 
               </Nav.Link>
+              <Nav.Link>
+                <Link
+                  className="text-light text-decoration-none"
+                  to={"/AccountRecovery"}
+                >
+                  Account Recovery
+                </Link>
+              </Nav.Link>
+              </>:null }
               {isAuthenticated?<><Nav.Link>
                 <Link className="text-light text-decoration-none" to={"/Accounts"}>
                   Accounts
@@ -74,6 +85,7 @@ const NavBar = ({pageName, pageDescription, isAuthenticated, setIsAuthenticated}
                   Appointments
                 </Link>
               </Nav.Link>
+                
               <NavDropdown
                 className="text-light"
                 title="User"
