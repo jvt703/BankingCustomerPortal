@@ -1,10 +1,13 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import Section from '../Section/Section';
 
 function PasswordUpdate() {
   const Navigate = useNavigate();
-  const { id, recoveryToken } = useParams();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const id = queryParams.get('userId');
+  const resetToken = queryParams.get('token');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isInvalid, setIsInvalid] = useState(false);
@@ -20,16 +23,17 @@ function PasswordUpdate() {
     setIsInvalid(false);
 
     try {
-      const response = await fetch('YOUR_API_ENDPOINT', {
+      const response = await fetch('http://localhost:8081/user/passwordReset', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id, recoveryToken, updatedPassword: password }),
+        body: JSON.stringify({ id, resetToken:resetToken, updatedPassword: password }),
       });
+      console.log(response)
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      const data = await response.json();
-      console.log(data); 
+      const data = await response
+      console.log(data)
        Navigate("/")
     } catch (error) {
       console.log(error);

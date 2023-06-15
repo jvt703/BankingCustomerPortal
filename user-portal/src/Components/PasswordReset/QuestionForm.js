@@ -9,16 +9,16 @@ const QuestionForm = () => {
   const handleSubmitEmail = async (e) => {
     e.preventDefault();
      try {
-      const response = await fetch('YOUR_API_ENDPOINT', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+      const response = await fetch(`http://localhost:8081/user/securityQuestion/${email}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+       
       });
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
       const data = await response.json();
-      setQuestion(data.question);
+      setQuestion(data.securityQuestion);
     } catch (error) {
         setQuestion("what is the capital of the US")
      console.log(error.message)
@@ -28,10 +28,10 @@ const QuestionForm = () => {
     const handleSubmitAnswer = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('YOUR_ANSWER_CHECK_API_ENDPOINT', {
+      const response = await fetch('http://localhost:8081/user/securityQuestion', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ answer }),
+        body: JSON.stringify({ securityAnswer:answer, email:email }),
       });
 
       if (!response.ok) {

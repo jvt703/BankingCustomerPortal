@@ -18,21 +18,21 @@ const Transactions = (props)=>{
 
   return <>
     <HeaderComponent pageName="Transactions" />
-    <Section>
-   <TransactionForm>
-
-        <TransactionDropdown name={"Sending Account"}></TransactionDropdown>
-        <div>
+    <Section  title="Make Transaction">
+   <TransactionForm >
+       
+        <div className='card border shadow-0 px-5 pt-5 pb-3'>
+           <TransactionDropdown name={"sourceAccount"}></TransactionDropdown>
           <NumberInput
-            inputId="Transaction Amount"
-            className="col-sm-6 col-12"
+            inputId="destinationAccount"
+            className="col-sm-6 col-12 centered align-self-center "
             labelText="Sending Amount"
             
             useName
           />
            <NumberInput
-            inputId="Transaction Amount2"
-            className="col-sm-6 col-12"
+            inputId="Amount"
+            className="col-sm-6 col-12 centered align-self-center"
             labelText="Receiving Account"
             useRegex = {false}
             useName

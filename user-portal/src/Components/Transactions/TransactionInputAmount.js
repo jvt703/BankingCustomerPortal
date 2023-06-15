@@ -13,15 +13,35 @@ export default function NumberInput({
    const handleInputChange = (e) => {
     const inputValue = e.target.value;
     const newValue = restrictToTwoDecimals(inputValue);
-    setValue(newValue !== '' ? newValue : value);
+    setValue(newValue);
   };
 
-  const restrictToTwoDecimals = (value) => {
+const restrictToTwoDecimals = (inputvalue) => {
     const decimals = /^\d*\.?\d{0,2}$/;
     const whole = /^\d*$/;
-    const match = value.match(useRegex?decimals:whole);
-    return match ? match[0] : '';
-  };
+
+    if (useRegex) {
+        // If useRegex is true, restrict to two decimal places
+        if (decimals.test(inputvalue)) {
+            return inputvalue;
+        } else if (value.includes('.')) {
+            let [integerPart, decimalPart] = inputvalue.split('.');
+            if (decimalPart.length > 2) {
+                decimalPart = decimalPart.slice(0, 2);
+                return `${integerPart}.${decimalPart}`;
+            }
+        }
+    } else {
+        // If useRegex is false, only accept whole numbers
+        if (whole.test(inputvalue)) {
+            
+            return inputvalue;
+        }
+    }
+
+    // If none of the above conditions are met, return the previous value
+    return value;
+};  
 
   return (
     <div className={"d-flex flex-column align-items-start " + className}>

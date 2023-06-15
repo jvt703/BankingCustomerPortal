@@ -25,9 +25,10 @@ const TransactionDropdown = (props)=>{
   };
 
   return (
-    <div>
-      <label htmlFor="account-select">Select an Account:</label>
+    <div className="d-flex flex-column align-items-start col-sm-6 col-12 align-self-center">
+      <label htmlFor="account-select" className="form-label">Select an Account:</label>
       <select
+        className="form-select"
         id="account-select"
         value={selectedAccount}
         onChange={handleAccountChange}

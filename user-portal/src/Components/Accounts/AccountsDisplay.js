@@ -100,11 +100,11 @@ const AccountsDisplay = () => {
   //   setAccountArray(data);
 
   // }
-  useEffect(() => {
-    fetch(process.env.REACT_APP_BACKEND_URL + "user/1/accounts")
-      .then((res) => res.json())
-      .then(setAccountArray);
-  }, []);
+  // useEffect(() => {
+  //   fetch(process.env.REACT_APP_BACKEND_URL + "user/1/accounts")
+  //     .then((res) => res.json())
+  //     .then(setAccountArray);
+  // }, []);
   useEffect(() => {
     const checksave = [];
     const creditLoan = [];

@@ -33,11 +33,11 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar isAuthenticated={false} setIsAuthenticated={setIsAuthenticated}></NavBar>
+        <NavBar isAuthenticated={true} setIsAuthenticated={setIsAuthenticated}></NavBar>
         <Routes>
           <Route path="/" element={<Login setIsAuthenticated={setIsAuthenticated}></Login>} />
           <Route
-              path="/PasswordUpdate/:id/:recoveryToken"
+              path="/reset-password"
               element={<PasswordUpdate />}
             />
            <Route path="/AccountRecovery" element={<PasswordResetDisplay></PasswordResetDisplay>} />
