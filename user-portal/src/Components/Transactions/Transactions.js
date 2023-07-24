@@ -21,7 +21,7 @@ const Transactions = (props)=>{
     <Section  title="Make Transaction">
    <TransactionForm >
        
-        <div className='card border shadow-0 px-5 pt-5 pb-3'>
+        <div className='card border shadow-0 px-2 pt-2 pb-3'>
            <TransactionDropdown name={"sourceAccount"}></TransactionDropdown>
           <NumberInput
             inputId="destinationAccount"

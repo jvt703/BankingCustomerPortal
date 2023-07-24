@@ -1,7 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const TransactionForm = (props)=>{
-
+const Navigate = useNavigate();
     async function submitRequest(e) {
     e.preventDefault();
     const data = Object.fromEntries(
@@ -30,9 +31,11 @@ const TransactionForm = (props)=>{
       }
       else{
         console.log("transaction complete")
+        Navigate("/") 
       }
     } catch (error) {
       console.error("Error:", error);
+      Navigate("/Transaction") 
     }
   }
 

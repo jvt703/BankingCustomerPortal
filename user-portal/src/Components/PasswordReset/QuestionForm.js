@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const QuestionForm = () => {
+   const Navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [question, setQuestion] = useState(null);
   const [answer, setAnswer] = useState('');
@@ -41,6 +43,7 @@ const QuestionForm = () => {
       setQuestion(null);
       setAnswer('');
       setIsAnswerInvalid(false);
+      Navigate("/")
     } catch (error) {
       setIsAnswerInvalid(true);
       console.log(error.message);
@@ -49,20 +52,20 @@ const QuestionForm = () => {
   return (
    <>
     {!question ? (
-      <form className="needs-validation" noValidate onSubmit={handleSubmitEmail}>
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">Email:</label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
+ <form className="needs-validation d-flex flex-column align-items-center" noValidate onSubmit={handleSubmitEmail}>
+  <div className="d-flex flex-column align-items-start col-sm-6 col-12">
+    <label htmlFor="email" className="form-label">Email:</label>
+    <input
+      type="email"
+      className="form-control"
+      id="email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      required
+    />
+  </div>
+  <button type="submit" className="btn btn-primary mt-3">Submit</button>
+</form>
     ) : (
       <form className={`needs-validation ${isAnswerInvalid ? '' : 'was-validated'}`} noValidate onSubmit={handleSubmitAnswer}>
         <p className="mb-3">{question}</p>
@@ -86,3 +89,21 @@ const QuestionForm = () => {
 };
 
 export default QuestionForm;
+
+{/* <div className="d-flex flex-column align-items-start col-sm-6 col-12 align-self-center">
+      <label htmlFor="account-select" className="form-label">Select an Account:</label>
+      <select
+        className="form-select"
+        id="account-select"
+        value={selectedAccount}
+        onChange={handleAccountChange}
+        name={props.name}
+      >
+        <option value="">Select an account</option>
+        {accountNumbers.map(account => (
+          <option key={account} value={account}>
+            {account}
+          </option>
+        ))}
+      </select>
+    </div> */}
